@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Boda</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styleOther.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100 relative overflow-hidden" id="body">
+    <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-10">
+        <source src="video/mesa.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>  
+    <img src="img/mask.svg" alt="Imagen de la Boda" class="absolute top-0 w-full h-auto object-cover z-10">
+
+
+    <div class="text-center space-y-4 relative z-20 px-4">
+        <h1 class="passions-conflict-regular-pareja">Detalles</h1>
+        <h1 class="kanit-bold">CÓDIGO DE VESTIMENTA</h1>
+    
+        <!-- Contenedor flex para alinear verticalmente con separación -->
+        <div class="flex flex-col justify-center items-center space-y-2">
+            <div class="flex justify-center items-center space-x-4">
+                <img src="img/dress.svg" alt="Imagen de anillo" class="w-20 h-20 mx-auto z-0 image-opacity-10 mb-4">
+            <img src="img/heartalone.svg" alt="Imagen de anillo" class="w-20 h-20 mx-auto z-0 image-opacity-10 mb-4">
+            <h1 class="kanit-extrabold line-decorated">FORMAL</h1>
+            </div>
+        </div>
+
+        <h1 class="kanit-bold">NO NIÑOS</h1>
+        <h1 class="kanit-bold">Amamos a los niños pero hemos reservado sitios solo para adultos.
+            Niños, dulces sueños</h1>
+
+        <!-- Imagen de vino -->
+        <img src="img/wine.svg" alt="Imagen de anillo" class="w-20 h-20 mx-auto z-0 image-opacity-10 mb-4">
+        
+    </div>
+
+
+</body>
+</html>

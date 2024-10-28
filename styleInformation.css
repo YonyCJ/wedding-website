@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.image-fade {
+    position: absolute;
+    top: -150px; /* Ajusta este valor para mover la imagen hacia arriba */
+    right: -250px; /* Ajusta este valor para mover la imagen más a la derecha */
+    width: 50%; /* Ajusta el ancho según lo necesites */
+    height: auto; /* Deja que la altura se ajuste automáticamente */
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    object-fit: cover;
+}
+
+
+.image-fade-bottom {
+    position: absolute;
+    bottom: -150px; /* Ajusta este valor para mover la imagen hacia abajo o arriba */
+    left: -200px; /* Ajusta este valor para mover la imagen más a la izquierda */
+    width: 50%; /* Ajusta el ancho según lo necesites */
+    height: auto;
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    object-fit: cover;
+}
+
+.kanit-extrabold {
+    font-family: "Kanit", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 40px;
+    color: #274066;
+  }
+  .kanit-extrabold-december {
+    font-family: "Kanit", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 20px;
+    color: #274066;
+  }
+  .kanit-bold {
+    font-family: "Kanit", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+    color: #274066;
+  }
+ 
+.kanit-medium {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px; /* Tamaño base */
+    color: #274066;
+  }
+
+  .passions-conflict-regular {
+    font-family: "Passions Conflict", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 48px; /* Tamaño base */
+    color: #274066;
+}
+
+  .line-decorated {
+    position: relative;
+    display: inline-block;
+    padding: 10px 0; /* Espacio para las líneas */
+}
+
+.line-decorated::before,
+.line-decorated::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px; /* Grosor de la línea */
+    background-color: #333; /* Color de la línea */
+}
+
+.line-decorated::before {
+    top: 0; /* Posición de la línea superior */
+}
+
+.line-decorated::after {
+    bottom: 0; /* Posición de la línea inferior */
+}
+
+
+/*-------------------------------------ir a una siguiente hoja------------------------------------*/
+.page-turn-effect {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent);
+    cursor: pointer;
+}
+
+.page-stack {
+    position: relative;
+    width: 50px;
+    height: 100px;
+}
+
+.page-layer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+    .image-fade {
+        top: -100px; /* Ajusta la posición para pantallas medianas */
+        right: -150px;
+        width: 60%; /* Hazla un poco más grande */
+    }
+}
+
+@media (max-width: 480px) {
+    .image-fade {
+        top: -50px; /* Posiciona más cerca de la parte superior */
+        right: -20px;
+        width: 70%; /* Hazla más grande en pantallas pequeñas */
+    }
+
+    .image-fade-bottom {
+        bottom: -80px; /* Ajusta la posición en pantallas pequeñas */
+        left: -20px;
+        width: 70%; /* Hazla más grande también */
+    }
+
+    .passions-conflict-regular {
+        font-size: 24px; /* Tamaño para pantallas pequeñas */
+    }
+    .kanit-extrabold {
+        font-size: 20px; /* Tamaño ajustado */
+    }
+    .passions-conflict-regular-pareja {
+        font-size: 40px; /* Tamaño ajustado */
+    }
+
+    video {
+        opacity: 0.5; /* Ajusta la opacidad según lo desees */
+    }
+}

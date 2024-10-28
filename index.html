@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Boda</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styleIndex.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100" id="body">
+    <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-10">
+        <source src="video/mesa.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>  
+    <img src="img/mask.svg" alt="Imagen de la Boda" class="absolute top-0 w-full h-auto object-cover z-10">
+    <div class="relative w-96 h-64 perspective cursor-pointer z-20" id="envelope">
+        <img src="img/sobre.svg" alt="Sobre de la Boda" class="w-full h-full object-cover" id="sobre">
+        <img src="img/sobretop.svg" alt="Sobre Top" class="absolute inset-0 w-full h-full object-cover z-30" id="sobretop">
+        <img src="img/sobreback.svg" alt="Sobre Back" class="absolute inset-0 w-full h-full object-cover z-25 opacity-0" id="sobreback">
+        <div class="absolute top-0 w-full h-full bg-white opacity-0 flex flex-col justify-center items-center p-5 shadow-lg letter">
+            <h1 class="text-2xl font-bold">¡Estás Invitado!</h1>
+            <p class="mt-2 text-center">Nos encantaría que nos acompañaras en nuestra boda.</p>
+        </div>
+        <img src="img/pin.svg" alt="Sello de la Boda" class="absolute inset-0 m-auto w-16 h-16 object-cover z-40">
+    </div>
+
+    <script>
+        document.getElementById('envelope').addEventListener('click', function() {
+            gsap.set('#sobreback', { opacity: 1 });
+            gsap.to('#sobre', { opacity: 0, duration: 0.1 });
+            gsap.to('#sobretop', { rotationX: -180, transformOrigin: "top center", duration: 1 });
+            gsap.to('#body', { opacity: 0, duration: 1, delay: 0.5, onComplete: function() {
+                window.location.href = 'details.html';
+            }});
+        });
+    </script>
+</body>
+</html>

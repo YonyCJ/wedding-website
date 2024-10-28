@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la boda</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styleDetails.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100 relative overflow-hidden" id="body">
+
+    <!-- Agregar audio -->
+    <audio id="background-audio" autoplay loop>
+        <source src="audio/letrademimelodia.mp3" type="audio/mp3">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+
+    <!-- Video de fondo -->
+    <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-10">
+        <source src="video/playa.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>    
+    
+    <!-- Elementos de la página -->
+    <img src="img/fondoflor.svg" alt="Imagen de flor top" class="absolute top-0 w-full h-auto object-cover z-10 image-fade">
+    <div class="text-center space-y-4 relative z-20">
+        <h1 class="passions-conflict-regular">Se parte de nuestra historia</h1>
+        <h1 class="kanit-extrabold">¡NOS CASAMOS!</h1>
+        <div class="flex justify-center mt-4 relative">
+            <img src="img/hearts.png" alt="Imagen de corazones" class="absolute inset-0 w-full h-full object-contain z-0 image-opacity-10">
+            <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-gray-300 relative z-10">
+                <img src="img/par.jpg" alt="Imagen dentro del círculo" class="w-full h-full object-cover">
+            </div>
+        </div>
+        <div class="flex items-center justify-center space-x-2 mt-4">
+            <h1 class="passions-conflict-regular-pareja">Francis</h1>
+            <img src="img/heart.png" alt="Imagen de corazones" class="w-20 h-20 object-contain">
+            <h1 class="passions-conflict-regular-pareja">Abel</h1>
+        </div>
+    </div>
+    <img src="img/fondoflor.svg" alt="flor bottom" class="absolute bottom-0 w-full h-auto object-cover z-0 image-fade-bottom">
+
+    <!-- Efecto de páginas en la esquina derecha -->
+    <div class="page-turn-effect absolute top-0 right-0 h-full w-16 z-30 cursor-pointer" onclick="nextPage()">
+        <div class="page-stack">
+            <div class="page-layer"></div>
+            <div class="page-layer"></div>
+            <div class="page-layer"></div>
+        </div>
+    </div>
+
+    <!-- Script para redirigir a la siguiente página -->
+    <script>
+        function nextPage() {
+            window.location.href = "information.html"; // Cambia "nextpage.html" por la URL de la siguiente página
+        }
+
+        
+        // Intentar reproducir el audio después de una interacción del usuario
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('background-audio');
+            if (audio.paused) {
+                audio.play();
+           }
+        });
+
+        
+
+    </script>
+</body>
+</html>
