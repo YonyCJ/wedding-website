@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800&display=swap');
 
 /* styleDetails.css */
 #body {
@@ -18,6 +18,7 @@
     mask-size: 100% 100%; /* Ajusta para cubrir toda la imagen */
     -webkit-mask-size: 100% 100%;
     object-fit: cover;
+    animation: sway 3s ease-in-out infinite; /* Añade la animación aquí */
 }
 
 .image-fade-bottom {
@@ -33,6 +34,15 @@
     object-fit: cover;
 }
 
+.moving-image {
+    animation: move 5s linear infinite;
+}
+
+@keyframes move {
+    0% { transform: scale(1) translateX(0); }
+    50% { transform: scale(1.05) translateX(10px); }
+    100% { transform: scale(1) translateX(0); }
+}
 
 .passions-conflict-regular {
     font-family: "Passions Conflict", serif;
@@ -56,15 +66,24 @@
     font-style: normal;
     font-size: 60px;
     color: #274066;
+}
+
+.kanit-regular {
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    color: #274066;
   }
 
-  .image-opacity-10 {
+.image-opacity-10 {
     opacity: 0.4; /* 10% de opacidad */
 }
 
 video {
     opacity: 0.5; /* Ajusta la opacidad según lo desees */
 }
+
 /*-------------------------------------ir a una siguiente hoja------------------------------------*/
 .page-turn-effect {
     position: absolute;
@@ -125,6 +144,22 @@ video {
     transform: rotate(-7deg) translateY(-15px);
 }
 
+.growing {
+    animation: growFromBottom 3s ease-out forwards;
+}
+
+@keyframes growFromBottom {
+    0% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+        opacity: 0;
+    }
+    100% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+        opacity: 1;
+    }
+}
 
 
 
@@ -151,8 +186,11 @@ video {
     }
     .kanit-extrabold {
         font-size: 48px; /* Tamaño base */
-      }
-      .passions-conflict-regular-pareja {
+    }
+    .kanit-regular {
+        font-size: 25px; /* Tamaño base */
+    }
+    .passions-conflict-regular-pareja {
         font-size: 80px; /* Tamaño base */
     }
     video {
@@ -160,5 +198,8 @@ video {
     }
 }
 
-
-  
+@keyframes sway {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(3deg); }
+    100% { transform: rotate(0deg); }
+}

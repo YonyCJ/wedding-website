@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles de la boda</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styleDetails.css">
+    <link rel="stylesheet" href="stylePage3.css">
+    <link rel="stylesheet" href="styleIndex2.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
 <body class="flex items-center justify-center min-h-screen bg-gray-100 relative overflow-hidden" id="body">
@@ -25,18 +26,22 @@
     <!-- Elementos de la página -->
     <img src="img/fondoflor.svg" alt="Imagen de flor top" class="absolute top-0 w-full h-auto object-cover z-10 image-fade">
     <div class="text-center space-y-4 relative z-20">
-        <h1 class="passions-conflict-regular">Se parte de nuestra historia</h1>
-        <h1 class="kanit-extrabold">¡NOS CASAMOS!</h1>
-        <div class="flex justify-center mt-4 relative">
-            <img src="img/hearts.png" alt="Imagen de corazones" class="absolute inset-0 w-full h-full object-contain z-0 image-opacity-10">
-            <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-gray-300 relative z-10">
-                <img src="img/par.jpg" alt="Imagen dentro del círculo" class="w-full h-full object-cover">
-            </div>
-        </div>
+        <h1 class="kanit-extrabold">NUESTRA BODA</h1>
+
+        <h1 class="kanit-medium">Nos encantaría celebrar este día tan especial en compañía de nuestra familia y amigos</h1>
+        
+        
         <div class="flex items-center justify-center space-x-2 mt-4">
             <h1 class="passions-conflict-regular-pareja">Francis</h1>
             <img src="img/heart.png" alt="Imagen de corazones" class="w-20 h-20 object-contain">
             <h1 class="passions-conflict-regular-pareja">Abel</h1>
+        </div>
+
+        <div class="flex justify-center mt-4 relative">
+            <img src="img/hearts.png" alt="Imagen de corazones" class="absolute inset-0 w-full h-full object-contain z-0 image-opacity-10">
+            <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-gray-300 relative z-10">
+                <img src="img/par.jpg" alt="Imagen dentro del círculo" class="w-full h-full object-cover moving-image">
+            </div>
         </div>
     </div>
     <img src="img/fondoflor.svg" alt="flor bottom" class="absolute bottom-0 w-full h-auto object-cover z-0 image-fade-bottom">
@@ -50,13 +55,14 @@
         </div>
     </div>
 
+    <div id="petals-container"></div>
+    <script src="script.js"></script>
     <!-- Script para redirigir a la siguiente página -->
     <script>
         function nextPage() {
-            window.location.href = "information.html"; // Cambia "nextpage.html" por la URL de la siguiente página
+            window.location.href = "page4.html"; // Cambia "nextpage.html" por la URL de la siguiente página
         }
 
-        
         // Intentar reproducir el audio después de una interacción del usuario
         document.addEventListener('click', function() {
             var audio = document.getElementById('background-audio');
@@ -64,9 +70,6 @@
                 audio.play();
            }
         });
-
-        
-
     </script>
 </body>
 </html>

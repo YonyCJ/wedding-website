@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la boda</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stylePage2.css">
+    <link rel="stylesheet" href="styleIndex2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100 relative overflow-hidden" id="body">
+
+    <!-- Agregar audio -->
+    <audio id="background-audio" autoplay loop>
+        <source src="audio/letrademimelodia.mp3" type="audio/mp3">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+
+    <!-- Video de fondo -->
+    <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-10">
+        <source src="video/playa.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>    
+    
+    <!-- Elementos de la página -->
+    <img src="img/fondoflor.svg" alt="Imagen de flor top" class="absolute top-0 w-full h-auto object-cover z-10 image-fade">
+    <div class="text-center space-y-4 relative z-20">
+        <h1 class="kanit-regular">
+            Después de conocernos<br>
+            y vivir la experiencia más<br>
+            linda que te regala Dios...
+        </h1>
+        
+        <h1 class="kanit-regular"> 
+            Estamos listos para ser<br>
+            más felices y caminar siempre<br>
+            juntos de la mano. Por eso<br>
+            queremos contarte que... </h1>
+
+    
+        <h1 class="passions-conflict-regular-pareja">¡Nos Casamos!</h1>
+
+    </div>
+    <img src="img/fondoflor.svg" alt="flor bottom" class="absolute bottom-0 w-full h-auto object-cover z-0 image-fade-bottom growing">
+
+    <!-- Efecto de páginas en la esquina derecha -->
+    <div class="page-turn-effect absolute top-0 right-0 h-full w-16 z-30 cursor-pointer" onclick="nextPage()">
+        <div class="page-stack">
+            <div class="page-layer"></div>
+            <div class="page-layer"></div>
+            <div class="page-layer"></div>
+        </div>
+    </div>
+
+    <div id="petals-container"></div>
+    <script src="script.js"></script>
+    <!-- Script para redirigir a la siguiente página -->
+    <script>
+        function nextPage() {
+            window.location.href = "page3.html"; // Cambia "nextpage.html" por la URL de la siguiente página
+        }
+
+        
+        // Intentar reproducir el audio después de una interacción del usuario
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('background-audio');
+            if (audio.paused) {
+                audio.play();
+           }
+        });
+
+        
+
+    </script>
+</body>
+</html>

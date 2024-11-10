@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800&display=swap');
+
+/* styleDetails.css */
+#body {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-fade {
+    position: absolute;
+    top: -600px; /* Ajusta este valor según la posición deseada */
+    left: 0;
+    width: 100%;
+    height: auto; /* Deja que la altura se ajuste automáticamente */
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-size: 100% 100%; /* Ajusta para cubrir toda la imagen */
+    -webkit-mask-size: 100% 100%;
+    object-fit: cover;
+    animation: sway 3s ease-in-out infinite; /* Añade la animación aquí */
+}
+
+.image-fade-bottom {
+    position: absolute;
+    bottom: -800px; /* Ubica la imagen en la parte inferior de la página */
+    left: 0;
+    width: 100%;
+    height: auto;
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    object-fit: cover;
+}
+
+.moving-image {
+    animation: move 5s linear infinite;
+}
+
+@keyframes move {
+    0% { transform: scale(1) translateX(0); }
+    50% { transform: scale(1.05) translateX(10px); }
+    100% { transform: scale(1) translateX(0); }
+}
+
+.passions-conflict-regular {
+    font-family: "Passions Conflict", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 48px; /* Tamaño base */
+    color: #274066;
+}
+
+.passions-conflict-regular-pareja {
+    font-family: "Passions Conflict", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 90px; /* Tamaño base */
+    color: #274066;
+}
+
+.kanit-extrabold {
+    font-family: "Kanit", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 60px;
+    color: #274066;
+}
+
+.kanit-medium {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px; /* Tamaño base */
+    color: #274066;
+  }
+
+.image-opacity-10 {
+    opacity: 0.4; /* 10% de opacidad */
+}
+
+video {
+    opacity: 0.5; /* Ajusta la opacidad según lo desees */
+}
+
+/*-------------------------------------ir a una siguiente hoja------------------------------------*/
+.page-turn-effect {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent);
+    cursor: pointer;
+}
+
+.page-stack {
+    position: relative;
+    width: 50px;
+    height: 100px;
+}
+
+.page-layer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Capas para simular varias hojas */
+.page-layer:nth-child(1) {
+    background: rgba(0, 0, 0, 0.15);
+    transform: rotate(-3deg);
+    z-index: 1;
+}
+.page-layer:nth-child(2) {
+    background: rgba(0, 0, 0, 0.25);
+    transform: rotate(-6deg);
+    z-index: 2;
+}
+.page-layer:nth-child(3) {
+    background: rgba(0, 0, 0, 0.35);
+    transform: rotate(-9deg);
+    z-index: 3;
+}
+
+/* Hover para efecto de "páginas levantadas" */
+.page-turn-effect:hover .page-layer:nth-child(1) {
+    transform: rotate(-1deg) translateY(-5px);
+}
+.page-turn-effect:hover .page-layer:nth-child(2) {
+    transform: rotate(-4deg) translateY(-10px);
+}
+.page-turn-effect:hover .page-layer:nth-child(3) {
+    transform: rotate(-7deg) translateY(-15px);
+}
+
+/* Media queries para ajustar la posición de la imagen en diferentes tamaños de pantalla */
+@media (max-width: 768px) {
+    .image-fade {
+        top: -300px; /* Ajusta este valor según la posición deseada en pantallas más pequeñas */
+    }
+    .passions-conflict-regular {
+        font-size: 48px; /* Tamaño para pantallas medianas */
+    }
+}
+
+@media (max-width: 480px) {
+    .image-fade {
+        top: -80px; /* Ajusta este valor según la posición deseada en pantallas muy pequeñas */
+    }
+    .image-fade-bottom {
+        bottom: -100px;
+    }
+    .passions-conflict-regular {
+        font-size: 40px; /* Tamaño para pantallas pequeñas */
+    }
+    .kanit-extrabold {
+        font-size: 48px; /* Tamaño base */
+    }
+    .passions-conflict-regular-pareja {
+        font-size: 80px; /* Tamaño base */
+    }
+    video {
+        opacity: 0.5; /* Ajusta la opacidad según lo desees */
+    }
+}
+
+@keyframes sway {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(3deg); }
+    100% { transform: rotate(0deg); }
+}
