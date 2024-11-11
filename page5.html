@@ -9,6 +9,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
 <body class="flex items-center justify-center min-h-screen bg-gray-100 relative overflow-hidden" id="body">
+    <!-- Agregar audio -->
+    <audio id="background-audio" autoplay loop>
+        <source src="audio/priemeravista.mp3" type="audio/mp3">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+
     <!-- Contenedor de pétalos -->
     <div id="petals-container" class="absolute inset-0 pointer-events-none"></div>
     <!-- Video de fondo -->
@@ -113,6 +119,13 @@
         function nextPage() {
             window.location.href = "page6.html"; // Cambia "nextpage.html" por la URL de la siguiente página
         }
+        // Intentar reproducir el audio después de una interacción del usuario
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('background-audio');
+            if (audio.paused) {
+                audio.play();
+           }
+        });
     </script>
     <script src="script.js"></script>
 
@@ -148,9 +161,6 @@
             document.getElementById('iframe-container').style.display = 'none';
         }
     </script>
-    
-    
-    
     
 </body>
 </html>

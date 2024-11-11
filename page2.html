@@ -10,10 +10,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
 <body class="flex items-center justify-center min-h-screen bg-gray-100 relative overflow-hidden" id="body">
-
+    <div id="fog-container">
+        <!-- Añadimos dos divs para la neblina -->
+        <div class="fog"></div>
+        <div class="fog"></div>
+    </div>
+    
     <!-- Agregar audio -->
     <audio id="background-audio" autoplay loop>
-        <source src="audio/letrademimelodia.mp3" type="audio/mp3">
+        <source src="audio/tedirequesi.mp3" type="audio/mp3">
         Tu navegador no soporta la etiqueta de audio.
     </audio>
 
@@ -31,16 +36,14 @@
             y vivir la experiencia más<br>
             linda que te regala Dios...
         </h1>
-        
+        <img src="img/rosa.png" class="rosa-image w-20 h-20 mx-auto z-0 image-opacity-10 mb-4">
         <h1 class="kanit-regular"> 
             Estamos listos para ser<br>
             más felices y caminar siempre<br>
             juntos de la mano. Por eso<br>
-            queremos contarte que... </h1>
-
-    
+            queremos contarte que... 
+        </h1>
         <h1 class="passions-conflict-regular-pareja">¡Nos Casamos!</h1>
-
     </div>
     <img src="img/fondoflor.svg" alt="flor bottom" class="absolute bottom-0 w-full h-auto object-cover z-0 image-fade-bottom growing">
 
@@ -61,7 +64,6 @@
             window.location.href = "page3.html"; // Cambia "nextpage.html" por la URL de la siguiente página
         }
 
-        
         // Intentar reproducir el audio después de una interacción del usuario
         document.addEventListener('click', function() {
             var audio = document.getElementById('background-audio');
@@ -69,9 +71,28 @@
                 audio.play();
            }
         });
+    </script>
 
-        
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            gsap.fromTo(".rosa-image", 
+                { width: "5rem", height: "5rem" }, // Tamaño inicial
+                { width: "7.5rem", height: "7.5rem", duration: 2, ease: "power1.inOut" } // Tamaño final y duración
+            );
+        });
+    </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fogContainer = document.getElementById('fog-container');
+
+            for (let i = 0; i < 2; i++) {
+                const fog = document.createElement('div');
+                fog.classList.add('fog');
+                fog.style.animationDirection = i % 2 === 0 ? 'normal' : 'reverse';
+                fogContainer.appendChild(fog);
+            }
+        });
     </script>
 </body>
 </html>

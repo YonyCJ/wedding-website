@@ -5,7 +5,7 @@ function createPetal() {
     petal.style.top = '-50px'; // Comienza fuera de la pantalla
     petal.style.animationDuration = Math.random() * 3 + 2 + 's';
     petal.style.animationDelay = Math.random() * 5 + 's';
-    petal.style.backgroundImage = 'url("img/petalo.png")'; // Ruta a la imagen del pétalo
+    petal.style.backgroundImage = 'url("img/peazul.png")'; // Ruta a la imagen del pétalo
     document.getElementById('petals-container').appendChild(petal);
 
     setTimeout(() => {

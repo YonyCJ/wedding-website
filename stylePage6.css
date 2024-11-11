@@ -57,6 +57,13 @@
     color: #274066;
 }
 
+.kanit-medium-photo {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #274066;
+}
+
 .passions-conflict-regular {
     font-family: "Passions Conflict", serif;
     font-weight: 400;
@@ -120,6 +127,57 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Estilos para el div con la imagen par.jpg */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-top: 16px;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.image-container .text-container {
+    margin-top: 16px;
+    text-align: center;
+}
+
+
+/* Estilos personalizados para el botón */
+.custom-button {
+    background-color: #274066; /* Color de fondo personalizado */
+    color: #ffffff; /* Color del texto */
+    padding: 12px 24px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    text-align: center; /* Alineación del texto */
+    display: inline-block; /* Para que el botón se comporte como un elemento en línea */
+    font-family: "Kanit", sans-serif; /* Fuente personalizada */
+    font-weight: 500; /* Peso de la fuente */
+    font-size: 16px; /* Tamaño de la fuente */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.custom-button:hover {
+    background-color: #1e3150; /* Color de fondo al pasar el ratón */
+}
+
+
+
+
 /* Ajustes para pantallas medianas */
 @media (max-width: 768px) {
     .image-fade {
@@ -159,11 +217,32 @@
         font-size: 40px;
     }
 
-    .kanit-medium {
+    .kanit-medium-photo {
         font-size: 10px;
+    }
+    .kanit-medium {
+        font-size: 15px;
     }
 
     video {
         opacity: 0.5;
     }
+
+    .image-container {
+        max-width: 300px; /* Ajusta el tamaño máximo del contenedor */
+        padding: 8px; /* Reduce el padding */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .image-container .text-container {
+        margin-top: 8px; /* Reduce el margen superior */
+    }
 }
+
+
