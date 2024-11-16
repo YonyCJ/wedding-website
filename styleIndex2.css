@@ -56,25 +56,6 @@
     z-index: 5; /* Asegúrate de que la neblina esté por encima de otros elementos */
 }
 
-/* Estilos para la neblina */
-.fog {
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: url('img/fog.png') repeat; /* Asegúrate de tener una imagen de neblina */
-    opacity: 0.5;
-    animation: moveFog 60s linear infinite;
-}
-
-@keyframes moveFog {
-    0% {
-        transform: translate(-50%, -50%);
-    }
-    100% {
-        transform: translate(50%, 50%);
-    }
-}
-
 /* Estilos para la imagen de la rosa */
 .rosa-image {
     transition: transform 1s ease-in-out;

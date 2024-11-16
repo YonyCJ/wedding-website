@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
 <body class="flex items-center justify-center min-h-screen bg-gray-100 relative overflow-hidden" id="body">
+    <div id="fireworks-container" class="absolute inset-0 pointer-events-none z-10"></div>
 
     <!-- Agregar audio -->
     <audio id="background-audio" autoplay loop>
@@ -18,7 +19,7 @@
     </audio>
 
     <!-- Video de fondo -->
-    <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-10">
+    <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-20">
         <source src="video/playa.mp4" type="video/mp4">
         Tu navegador no soporta la etiqueta de video.
     </video>    
@@ -26,7 +27,8 @@
     <!-- Elementos de la página -->
     <img src="img/fondoflor.svg" alt="Imagen de flor top" class="absolute top-0 w-full h-auto object-cover z-10 image-fade">
     <div class="text-center space-y-4 relative z-20">
-        <h1 class="kanit-extrabold">NUESTRA BODA</h1>
+        <h1 id="wedding-title" class="kanit-extrabold"></h1>
+        <script src="scriptLetter.js"></script>
 
         <h1 class="kanit-medium">Nos encantaría celebrar este día tan especial en compañía de nuestra familia y amigos</h1>
         
@@ -70,6 +72,43 @@
                 audio.play();
            }
         });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const container = document.getElementById('fireworks-container');
+    
+        function createFirework() {
+            const fireworkCount = 200; // Número de partículas por explosión
+            const posX = Math.random() * window.innerWidth; // Posición horizontal aleatoria
+            const posY = Math.random() * window.innerHeight; // Posición vertical aleatoria
+    
+            for (let i = 0; i < fireworkCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('firework');
+    
+                // Establecer posiciones finales aleatorias para las partículas
+                const angle = Math.random() * Math.PI * 2; // Dirección en radianes
+                const distance = Math.random() * 150 + 50; // Distancia de explosión
+                const x = Math.cos(angle) * distance;
+                const y = Math.sin(angle) * distance;
+    
+                particle.style.setProperty('--x', `${x}px`);
+                particle.style.setProperty('--y', `${y}px`);
+    
+                // Posición inicial en la pantalla
+                particle.style.left = `${posX}px`;
+                particle.style.top = `${posY}px`;
+    
+                container.appendChild(particle);
+    
+                // Remover las partículas después de la animación
+                setTimeout(() => particle.remove(), 1500);
+            }
+        }
+    
+        // Crear fuegos artificiales cada 2 segundos
+        setInterval(createFirework, 700);
+    });
     </script>
 </body>
 </html>

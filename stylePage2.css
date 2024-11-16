@@ -85,79 +85,62 @@ video {
 }
 
 /*-------------------------------------ir a una siguiente hoja------------------------------------*/
-.page-turn-effect {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent);
+.heart-container {
+    position: fixed;
+    bottom: 20px; /* Asegura que esté fijo en la parte inferior */
+    right: 20px; /* Asegura que esté fijo en la parte derecha */
     cursor: pointer;
+    /* Puede añadir más estilos si lo deseas, pero asegúrate que no se mueva */
 }
 
-.page-stack {
-    position: relative;
-    width: 50px;
+/* Estilo para la imagen del corazón */
+.heart {
+    width: 100px; /* Ajusta el tamaño de la imagen */
     height: 100px;
+    transition: transform 0.5s ease-in-out; /* Transición suave */
+    animation: heartbeat 1.5s infinite; /* Animación de latido */
 }
 
-.page-layer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 30px;
-    height: 30px;
-    background: rgba(0, 0, 0, 0.2);
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Capas para simular varias hojas */
-.page-layer:nth-child(1) {
-    background: rgba(0, 0, 0, 0.15);
-    transform: rotate(-3deg);
-    z-index: 1;
-}
-.page-layer:nth-child(2) {
-    background: rgba(0, 0, 0, 0.25);
-    transform: rotate(-6deg);
-    z-index: 2;
-}
-.page-layer:nth-child(3) {
-    background: rgba(0, 0, 0, 0.35);
-    transform: rotate(-9deg);
-    z-index: 3;
-}
-
-/* Hover para efecto de "páginas levantadas" */
-.page-turn-effect:hover .page-layer:nth-child(1) {
-    transform: rotate(-1deg) translateY(-5px);
-}
-.page-turn-effect:hover .page-layer:nth-child(2) {
-    transform: rotate(-4deg) translateY(-10px);
-}
-.page-turn-effect:hover .page-layer:nth-child(3) {
-    transform: rotate(-7deg) translateY(-15px);
-}
-
-.growing {
-    animation: growFromBottom 3s ease-out forwards;
-}
-
-@keyframes growFromBottom {
+/* Animación de latido (zoom in y zoom out sin mover la posición) */
+@keyframes heartbeat {
     0% {
-        transform: scaleY(0);
-        transform-origin: bottom;
-        opacity: 0;
+        transform: scale(1); /* Tamaño original */
+    }
+    50% {
+        transform: scale(1.2); /* Aumenta al 120% de tamaño */
     }
     100% {
-        transform: scaleY(1);
-        transform-origin: bottom;
+        transform: scale(1); /* Vuelve al tamaño original */
+    }
+}
+
+/* Luces parpadeantes*/
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    animation: explode 1.5s ease-out forwards, fadeOut 1.5s ease-out forwards;
+}
+
+/* Animación de explosión */
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0.8);
+    }
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeOut {
+    80% {
         opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -175,26 +158,54 @@ video {
 }
 
 @media (max-width: 480px) {
+    /* Ajusta la posición de la imagen para pantallas pequeñas */
     .image-fade {
-        top: -80px; /* Ajusta este valor según la posición deseada en pantallas muy pequeñas */
+        top: -80px; /* Ajusta este valor según la posición deseada */
     }
+
     .image-fade-bottom {
-        bottom: -100px;
+        bottom: -100px; /* Ajuste para pantallas pequeñas */
     }
+
+    /* Tamaño de fuente para pantallas pequeñas */
     .passions-conflict-regular {
         font-size: 40px; /* Tamaño para pantallas pequeñas */
     }
+
     .kanit-extrabold {
         font-size: 48px; /* Tamaño base */
     }
+
     .kanit-regular {
         font-size: 25px; /* Tamaño base */
     }
+
     .passions-conflict-regular-pareja {
         font-size: 80px; /* Tamaño base */
     }
+
+    /* Ajuste de opacidad para el video */
     video {
         opacity: 0.5; /* Ajusta la opacidad según lo desees */
+    }
+
+    /* Asegurarse de que el efecto de latido funcione */
+    .heart {
+        animation: heartbeat 1.5s infinite; /* Animación de latido */
+        transform-origin: center center; /* Mantiene el centro de la imagen para el zoom */
+    }
+
+    /* Animación de latido (zoom in y zoom out sin mover la posición) */
+    @keyframes heartbeat {
+        0% {
+            transform: scale(1); /* Tamaño original */
+        }
+        50% {
+            transform: scale(1.2); /* Aumenta al 120% de tamaño */
+        }
+        100% {
+            transform: scale(1); /* Vuelve al tamaño original */
+        }
     }
 }
 

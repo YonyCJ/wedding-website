@@ -66,7 +66,23 @@
     font-style: normal;
     font-size: 60px;
     color: #274066;
+    display: inline-block; /* Asegura que el título tenga un ancho flexible */
+    text-align: center;
+    overflow: hidden; /* Oculta contenido fuera del área visible */
 }
+
+.letter {
+    display: inline-block; /* Cada letra es independiente */
+    opacity: 0; /* Inicialmente invisible */
+    transform: translateY(-100px); /* Empieza arriba, fuera del área visible */
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out; /* Efecto suave */
+}
+
+.letter.show {
+    opacity: 1; /* Se hace visible */
+    transform: translateY(0); /* Cae a su posición normal */
+}
+
 
 .kanit-medium {
     font-family: "Kanit", sans-serif;
@@ -142,6 +158,36 @@ video {
 }
 .page-turn-effect:hover .page-layer:nth-child(3) {
     transform: rotate(-7deg) translateY(-15px);
+}
+
+/* Luces parpadeantes*/
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    animation: explode 1.5s ease-out forwards, fadeOut 1.5s ease-out forwards;
+}
+
+/* Animación de explosión */
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0.8);
+    }
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeOut {
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 /* Media queries para ajustar la posición de la imagen en diferentes tamaños de pantalla */

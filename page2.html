@@ -10,11 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
 <body class="flex items-center justify-center min-h-screen bg-gray-100 relative overflow-hidden" id="body">
-    <div id="fog-container">
-        <!-- Añadimos dos divs para la neblina -->
-        <div class="fog"></div>
-        <div class="fog"></div>
-    </div>
+    <div id="fireworks-container" class="absolute inset-0 pointer-events-none z-10"></div>
     
     <!-- Agregar audio -->
     <audio id="background-audio" autoplay loop>
@@ -23,7 +19,7 @@
     </audio>
 
     <!-- Video de fondo -->
-    <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-10">
+    <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-20">
         <source src="video/playa.mp4" type="video/mp4">
         Tu navegador no soporta la etiqueta de video.
     </video>    
@@ -47,23 +43,32 @@
     </div>
     <img src="img/fondoflor.svg" alt="flor bottom" class="absolute bottom-0 w-full h-auto object-cover z-0 image-fade-bottom growing">
 
-    <!-- Efecto de páginas en la esquina derecha -->
-    <div class="page-turn-effect absolute top-0 right-0 h-full w-16 z-30 cursor-pointer" onclick="nextPage()">
-        <div class="page-stack">
-            <div class="page-layer"></div>
-            <div class="page-layer"></div>
-            <div class="page-layer"></div>
-        </div>
+    <!-- Efecto de páginas en la esquina derecha pagina siguiente -->
+    <div class="heart-container" onclick="nextPage()">
+        <img src="img/next.png" alt="Corazón" class="heart">
     </div>
 
     <div id="petals-container"></div>
     <script src="script.js"></script>
-    <!-- Script para redirigir a la siguiente página -->
     <script>
+        // El script para la transición y redirección
         function nextPage() {
-            window.location.href = "page3.html"; // Cambia "nextpage.html" por la URL de la siguiente página
+            // Crear un fondo opaco para la transición
+            const overlay = document.createElement('div');
+            overlay.classList.add('page-turn-overlay');
+            document.body.appendChild(overlay);
+    
+            // Añadir animación a la capa de transición
+            const pageEffect = document.querySelector('.page-turn-effect');
+            if (pageEffect) {
+                pageEffect.classList.add('animate');
+            }
+    
+            // Esperar el final de la animación antes de redirigir
+            setTimeout(() => {
+                window.location.href = "page3.html"; // Cambia por la URL de la siguiente página
+            }, 600); // Tiempo de duración de la animación
         }
-
         // Intentar reproducir el audio después de una interacción del usuario
         document.addEventListener('click', function() {
             var audio = document.getElementById('background-audio');
@@ -73,26 +78,44 @@
         });
     </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            gsap.fromTo(".rosa-image", 
-                { width: "5rem", height: "5rem" }, // Tamaño inicial
-                { width: "7.5rem", height: "7.5rem", duration: 2, ease: "power1.inOut" } // Tamaño final y duración
-            );
-        });
-    </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const fogContainer = document.getElementById('fog-container');
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('fireworks-container');
 
-            for (let i = 0; i < 2; i++) {
-                const fog = document.createElement('div');
-                fog.classList.add('fog');
-                fog.style.animationDirection = i % 2 === 0 ? 'normal' : 'reverse';
-                fogContainer.appendChild(fog);
-            }
-        });
-    </script>
+    function createFirework() {
+        const fireworkCount = 200; // Número de partículas por explosión
+        const posX = Math.random() * window.innerWidth; // Posición horizontal aleatoria
+        const posY = Math.random() * window.innerHeight; // Posición vertical aleatoria
+
+        for (let i = 0; i < fireworkCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('firework');
+
+            // Establecer posiciones finales aleatorias para las partículas
+            const angle = Math.random() * Math.PI * 2; // Dirección en radianes
+            const distance = Math.random() * 150 + 50; // Distancia de explosión
+            const x = Math.cos(angle) * distance;
+            const y = Math.sin(angle) * distance;
+
+            particle.style.setProperty('--x', `${x}px`);
+            particle.style.setProperty('--y', `${y}px`);
+
+            // Posición inicial en la pantalla
+            particle.style.left = `${posX}px`;
+            particle.style.top = `${posY}px`;
+
+            container.appendChild(particle);
+
+            // Remover las partículas después de la animación
+            setTimeout(() => particle.remove(), 1500);
+        }
+    }
+
+    // Crear fuegos artificiales cada 2 segundos
+    setInterval(createFirework, 700);
+});
+</script>
+
 </body>
 </html>

@@ -2,32 +2,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
-.image-fade {
+.image-move {
     position: absolute;
-    top: -150px; /* Ajusta este valor para mover la imagen hacia arriba */
-    right: -250px; /* Ajusta este valor para mover la imagen más a la derecha */
-    width: 50%; /* Ajusta el ancho según lo necesites */
-    height: auto; /* Deja que la altura se ajuste automáticamente */
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-    mask-size: 100% 100%;
-    -webkit-mask-size: 100% 100%;
-    object-fit: cover;
-}
-
-
-.image-fade-bottom {
-    position: absolute;
-    bottom: -150px; /* Ajusta este valor para mover la imagen hacia abajo o arriba */
-    left: -200px; /* Ajusta este valor para mover la imagen más a la izquierda */
-    width: 50%; /* Ajusta el ancho según lo necesites */
+    top: 0; /* Mantén la imagen en la parte superior */
+    width: 100%; /* Ajusta al ancho completo de la pantalla */
     height: auto;
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-    mask-size: 100% 100%;
-    -webkit-mask-size: 100% 100%;
-    object-fit: cover;
+    object-fit: cover; /* Para asegurarse de que la imagen cubra el área */
+
+    /* Animación de movimiento hacia arriba y hacia abajo */
+    animation: moveUpDown 3s ease-in-out infinite;
 }
+
+/* Animación para el movimiento hacia arriba y hacia abajo */
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(0); /* La imagen comienza en su posición original */
+    }
+    50% {
+        transform: translateY(-10px); /* La imagen se mueve hacia arriba un poco */
+    }
+}
+
 
 .kanit-extrabold {
     font-family: "Kanit", sans-serif;
@@ -132,6 +127,36 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Luces parpadeantes*/
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    animation: explode 1.5s ease-out forwards, fadeOut 1.5s ease-out forwards;
+}
+
+/* Animación de explosión */
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0.8);
+    }
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeOut {
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 
 @media (max-width: 768px) {
     .image-fade {
@@ -145,16 +170,10 @@
 }
 
 @media (max-width: 480px) {
-    .image-fade {
-        top: -50px; /* Posiciona más cerca de la parte superior */
-        right: -20px;
-        width: 70%; /* Hazla más grande en pantallas pequeñas */
-    }
-
-    .image-fade-bottom {
-        bottom: -80px; /* Ajusta la posición en pantallas pequeñas */
-        left: -20px;
-        width: 70%; /* Hazla más grande también */
+    .image-move {
+        top: 0; /* Mantén la imagen pegada a la parte superior */
+        width: 120%; /* Haz la imagen más grande (ajusta el porcentaje según lo necesites) */
+        object-fit: cover; /* Asegúrate de que la imagen cubra el espacio sin distorsionarse */
     }
 
     .passions-conflict-regular {

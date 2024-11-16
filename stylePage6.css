@@ -4,28 +4,54 @@
 /* Estilos para las imágenes con efecto de desvanecimiento */
 .image-fade {
     position: absolute;
-    top: -150px;
-    right: -250px;
-    width: 50%;
-    height: auto;
+    top: -150px; /* Ajusta este valor para mover la imagen hacia arriba */
+    right: -250px; /* Ajusta este valor para mover la imagen más a la derecha */
+    width: 50%; /* Ajusta el ancho según lo necesites */
+    height: auto; /* Deja que la altura se ajuste automáticamente */
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     mask-size: 100% 100%;
     -webkit-mask-size: 100% 100%;
     object-fit: cover;
+
+    /* Solo la animación de movimiento (mecimiento) */
+    animation: swing 4s ease-in-out infinite;
+}
+
+/* Animación para el movimiento de mecerse (oscilación) */
+@keyframes swing {
+    0%, 100% {
+        transform: rotate(-2deg); /* La imagen comienza ligeramente inclinada hacia la izquierda */
+    }
+    50% {
+        transform: rotate(2deg); /* La imagen se inclina ligeramente hacia la derecha */
+    }
 }
 
 .image-fade-bottom {
     position: absolute;
-    bottom: -150px;
-    left: -200px;
-    width: 50%;
+    bottom: -150px; /* Ajusta este valor para mover la imagen hacia abajo o arriba */
+    left: -200px; /* Ajusta este valor para mover la imagen más a la izquierda */
+    width: 50%; /* Ajusta el ancho según lo necesites */
     height: auto;
     mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     mask-size: 100% 100%;
     -webkit-mask-size: 100% 100%;
     object-fit: cover;
+
+    /* Solo la animación de movimiento (mecimiento) */
+    animation: swing 4s ease-in-out infinite;
+}
+
+/* Animación para el movimiento de mecerse (oscilación) */
+@keyframes swing {
+    0%, 100% {
+        transform: rotate(-2deg); /* La imagen comienza ligeramente inclinada hacia la izquierda */
+    }
+    50% {
+        transform: rotate(2deg); /* La imagen se inclina ligeramente hacia la derecha */
+    }
 }
 
 /* Estilos para los textos */
@@ -176,6 +202,36 @@
 }
 
 
+
+/* Luces parpadeantes*/
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    animation: explode 1.5s ease-out forwards, fadeOut 1.5s ease-out forwards;
+}
+
+/* Animación de explosión */
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0.8);
+    }
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeOut {
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
 
 /* Ajustes para pantallas medianas */
