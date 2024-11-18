@@ -28,3 +28,88 @@
 .letter {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.image-move {
+    position: absolute;
+    top: 0; /* Mantén la imagen en la parte superior */
+    width: 100%; /* Ajusta al ancho completo de la pantalla */
+    height: auto;
+    object-fit: cover; /* Para asegurarse de que la imagen cubra el área */
+
+    /* Animación de movimiento hacia arriba y hacia abajo */
+    animation: moveUpDown 3s ease-in-out infinite;
+}
+
+/* Animación para el movimiento hacia arriba y hacia abajo */
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(0); /* La imagen comienza en su posición original */
+    }
+    50% {
+        transform: translateY(-10px); /* La imagen se mueve hacia arriba un poco */
+    }
+}
+
+
+/* Luces parpadeantes*/
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    animation: explode 1.5s ease-out forwards, fadeOut 1.5s ease-out forwards;
+}
+
+/* Animación de explosión */
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0.8);
+    }
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeOut {
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@media (max-width: 480px) {
+    /* Reducir el tamaño de la carta */
+    #envelope {
+        width: 80%; /* Ajusta el ancho al 80% del tamaño de la pantalla */
+        height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+    }
+
+    /* Reducir el tamaño de los elementos dentro de la carta */
+    #sobre, #sobretop, #sobreback {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho del contenedor */
+        height: auto; /* Mantener la proporción de las imágenes */
+    }
+
+    /* Reducir la sombra de la carta */
+    .letter {
+        padding: 3px 2px; /* Reducir el padding */
+        font-size: 14px; /* Reducir el tamaño del texto */
+    }
+
+    /* Reducir el tamaño del pin */
+    #pin {
+        width: 12vw; /* Usar un porcentaje relativo al ancho de la pantalla */
+        height: auto; /* Mantener la proporción */
+    }
+
+    /* Asegurarse de que la carta no se desborde */
+    .relative {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}

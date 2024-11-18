@@ -11,7 +11,7 @@
 </head>
 <body class="flex items-center justify-center min-h-screen bg-gray-100 relative overflow-hidden" id="body">
     <div id="fireworks-container" class="absolute inset-0 pointer-events-none z-10"></div>
-    
+
     <!-- Agregar audio -->
     <audio id="background-audio" autoplay loop>
         <source src="audio/tedirequesi.mp3" type="audio/mp3">
@@ -22,8 +22,8 @@
     <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-20">
         <source src="video/playa.mp4" type="video/mp4">
         Tu navegador no soporta la etiqueta de video.
-    </video>    
-    
+    </video>
+
     <!-- Elementos de la página -->
     <img src="img/fondoflor.svg" alt="Imagen de flor top" class="absolute top-0 w-full h-auto object-cover z-10 image-fade">
     <div class="text-center space-y-4 relative z-20">
@@ -33,48 +33,33 @@
             linda que te regala Dios...
         </h1>
         <img src="img/rosa.png" class="rosa-image w-20 h-20 mx-auto z-0 image-opacity-10 mb-4">
-        <h1 class="kanit-regular"> 
+        <h1 class="kanit-regular">
             Estamos listos para ser<br>
             más felices y caminar siempre<br>
             juntos de la mano. Por eso<br>
-            queremos contarte que... 
+            queremos contarte que...
         </h1>
         <h1 class="passions-conflict-regular-pareja">¡Nos Casamos!</h1>
     </div>
     <img src="img/fondoflor.svg" alt="flor bottom" class="absolute bottom-0 w-full h-auto object-cover z-0 image-fade-bottom growing">
 
-    <!-- Efecto de páginas en la esquina derecha pagina siguiente -->
-    <div class="heart-container" onclick="nextPage()">
-        <img src="img/next.png" alt="Corazón" class="heart">
-    </div>
+    <!-- Efecto de páginas en la esquina derecha -->
+    <div class="page-turn-effect" onclick="nextPage()"></div>
+
 
     <div id="petals-container"></div>
     <script src="script.js"></script>
     <script>
-        // El script para la transición y redirección
         function nextPage() {
-            // Crear un fondo opaco para la transición
-            const overlay = document.createElement('div');
-            overlay.classList.add('page-turn-overlay');
-            document.body.appendChild(overlay);
-    
-            // Añadir animación a la capa de transición
-            const pageEffect = document.querySelector('.page-turn-effect');
-            if (pageEffect) {
-                pageEffect.classList.add('animate');
-            }
-    
-            // Esperar el final de la animación antes de redirigir
-            setTimeout(() => {
-                window.location.href = "page3.html"; // Cambia por la URL de la siguiente página
-            }, 600); // Tiempo de duración de la animación
+            window.location.href = "page3.html"; // Cambia "nextpage.html" por la URL de la siguiente página
         }
+
         // Intentar reproducir el audio después de una interacción del usuario
         document.addEventListener('click', function() {
             var audio = document.getElementById('background-audio');
             if (audio.paused) {
                 audio.play();
-           }
+            }
         });
     </script>
 

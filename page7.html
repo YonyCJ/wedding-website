@@ -6,6 +6,7 @@
     <title>Invitación de Boda</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="stylePage7.css">
+    <link rel="stylesheet" href="styleIndex2.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
 <body class="flex items-center justify-center h-screen bg-gray-100 relative overflow-hidden" id="body">
@@ -15,8 +16,11 @@
         <source src="audio/letrademimelodia.mp3" type="audio/mp3">
         Tu navegador no soporta la etiqueta de audio.
     </audio>
+
+    <div id="petals-container" class="absolute inset-0 pointer-events-none"></div>
+
     <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-10">
-        <source src="video/mesa.mp4" type="video/mp4">
+        <source src="video/lavanda.mp4" type="video/mp4">
         Tu navegador no soporta la etiqueta de video.
     </video>  
     <img src="img/mask.svg" alt="Imagen de la Boda" class="absolute top-0 w-full h-auto object-cover z-10 image-move">
@@ -48,6 +52,8 @@
            }
         });
     </script>
+
+    <script src="script.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

@@ -145,32 +145,20 @@ html, body {
     position: absolute;
     top: 0;
     right: 0;
-    width: 60px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent);
+    width: 60px; /* Ajusta el ancho del efecto */
+    height: 100%; /* Efecto de altura completa */
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.4), transparent); /* Cambia los colores aquí */
     cursor: pointer;
+    transition: background 0.3s ease; /* Suaviza los cambios al pasar el mouse */
 }
 
-.page-stack {
-    position: relative;
-    width: 50px;
-    height: 100px;
+/* Efecto hover para resaltar */
+.page-turn-effect:hover {
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent); /* Cambia este color para el hover */
 }
+/*-------------------------------------termina------------------------------------*/
 
-.page-layer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 30px;
-    height: 30px;
-    background: rgba(0, 0, 0, 0.2);
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
+
 /*CONTADOR*/
 .countdown-container {
     display: flex;
