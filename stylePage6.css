@@ -133,20 +133,73 @@ body, html {
 }
 
 /*-------------------------------------ir a una siguiente hoja------------------------------------*/
-.page-turn-effect {
+/* Estilo base */
+.next-button {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 60px; /* Ajusta el ancho del efecto */
-    height: 100%; /* Efecto de altura completa */
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.4), transparent); /* Cambia los colores aquí */
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: auto;
     cursor: pointer;
-    transition: background 0.3s ease; /* Suaviza los cambios al pasar el mouse */
+    z-index: 30;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    transition: box-shadow 0.3s, transform 0.3s;
 }
 
-/* Efecto hover para resaltar */
-.page-turn-effect:hover {
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent); /* Cambia este color para el hover */
+/* Animación combinada: rotación y salto */
+@keyframes rotateAndBounce {
+    0% {
+        transform: rotate(0deg) translateY(0);
+    }
+    10% {
+        transform: rotate(90deg) translateY(0);
+    }
+    20% {
+        transform: rotate(180deg) translateY(0);
+    }
+    30% {
+        transform: rotate(270deg) translateY(0);
+    }
+    40% {
+        transform: rotate(360deg) translateY(0);
+    }
+    50% {
+        transform: translateY(-15px); /* Salto hacia arriba */
+    }
+    60% {
+        transform: translateY(0);
+    }
+    70% {
+        transform: translateY(-10px); /* Salto menor */
+    }
+    80% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Sombra pulsante durante la animación */
+@keyframes shadowPulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Aplicar animaciones */
+.next-button {
+    animation: rotateAndBounce 6s infinite ease-in-out, shadowPulse 6s infinite ease-in-out;
+}
+
+/* Hover interactivo */
+.next-button:hover {
+    transform: scale(1.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 /*-------------------------------------termina------------------------------------*/
 

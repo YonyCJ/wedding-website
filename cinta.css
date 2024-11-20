@@ -1,0 +1,77 @@
+/* Estilo general del cuerpo */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #f3e7e9, #e3eeff);
+    overflow: hidden;
+}
+
+/* Contenedor de la cinta */
+.cinta-container {
+    position: absolute; /* Colocamos el contenedor en una posición absoluta */
+    top: 20px; /* Ajustamos la distancia desde la parte superior */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translateX(-50%); /* Compensamos el 50% de su propio ancho para centrarla */
+    width: 200px;
+    height: 50px; /* Reducimos la altura para hacerla más delgada */
+    cursor: grab;
+    z-index: 9999; /* Aseguramos que este contenedor se apile por encima de todo */
+}
+
+/* Fondo decorativo detrás de la cinta */
+.decorativo {
+    position: absolute;
+    top: 0; /* Lo coloca en la parte superior */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translateX(-50%); /* Aseguramos que quede centrado */
+    width: 150px;
+    height: 8px; /* Más delgado para adaptarse a la cinta */
+    background: linear-gradient(to right, #a8dadc, #457b9d);
+    border-radius: 4px;
+    z-index: 1; /* Aseguramos que el fondo esté por debajo de la cinta */
+}
+
+/* Diseño de la cinta */
+.cinta {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #e63946, #f1faee);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem; /* Ajustamos el tamaño del texto */
+    font-weight: bold;
+    color: white;
+    border-radius: 25px; /* Redondeamos acorde a la nueva altura */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Animación de rebote para el texto */
+@keyframes textBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px); /* Reducimos el rebote acorde al tamaño */
+    }
+}
+
+/* Estado activo (cuando se jala la cinta) */
+.cinta:active {
+    cursor: grabbing;
+    transform: translateX(150px);
+    background: linear-gradient(to right, #1d3557, #457b9d);
+}
+
+/* Animación de rebote en el texto de la cinta */
+.cinta-texto {
+    animation: textBounce 1s infinite;
+}
